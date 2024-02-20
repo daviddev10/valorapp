@@ -1,1 +1,90 @@
-<button nz-button nzType="primary">Primary</button>
+<nz-tabset nzCentered nzSize="large" nzTabPosition="bottom">
+    <nz-tab [nzTitle]="titleTemplate">
+        <ng-template #titleTemplate>
+            <i class="uil uil-shopping-basket"></i>
+            Compras
+        </ng-template>
+        <div class="tab-content">
+            <!-- Header -->
+            <nz-page-header>
+
+                <!--title-->
+                <nz-page-header-title>COMPRA DE VALORADOS</nz-page-header-title>
+
+                <!--subtitle-->
+                <!-- <nz-page-header-subtitle>(Cifras expresadas en Bs.)</nz-page-header-subtitle> -->
+
+                <!--tags-->
+                <!-- <nz-page-header-tags>
+                    <nz-tag [nzColor]="'blue'">Running</nz-tag>
+                </nz-page-header-tags> -->
+
+                <!--extra-->
+                <nz-page-header-extra>
+                    <nz-space>
+                        <!-- <button *nzSpaceItem nz-button>Operation</button> -->
+                        <button *nzSpaceItem nz-button nzDanger nzType="primary">
+                            <nz-space [nzSize]="2">
+                                <span *nzSpaceItem>Salir</span>
+                                <i *nzSpaceItem class="uil uil-sign-out-alt"></i>
+                            </nz-space>
+                        </button>
+
+
+                    </nz-space>
+
+                </nz-page-header-extra>
+
+
+            </nz-page-header>
+
+
+            <app-valued-list></app-valued-list>
+            <!-- Nuevo valorado -->
+            <div class="text-center" style="margin-top: 5px;">
+                <button nz-button nz-dropdown nzType="primary" nzTrigger="click" [nzDropdownMenu]="menu"
+                    nzPlacement="topCenter">
+                    <nz-space [nzSize]="2">
+                        <i *nzSpaceItem class="uuil uil-book-medical"></i>
+                        <span *nzSpaceItem>Agregar nuevo</span>
+                    </nz-space>
+                </button>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <ul nz-menu>
+                        <li nz-menu-item>
+                            <i class="uil uil-kid"></i>
+                            <nz-divider nzType="vertical"></nz-divider>
+                            <span>Nacimiento</span>
+                        </li>
+                        <li nz-menu-item>
+                            <i class="uil uil-heart-alt"></i>
+                            <nz-divider nzType="vertical"></nz-divider>
+                            <span>Matrimonio</span>
+                        </li>
+                        <li nz-menu-item>
+                            <i class="uil uil-ambulance"></i>
+                            <nz-divider nzType="vertical"></nz-divider>
+                            <span>Defunción</span>
+                        </li>
+
+
+                    </ul>
+                </nz-dropdown-menu>
+            </div>
+        </div>
+    </nz-tab>
+    <nz-tab [nzTitle]="titleTab2">
+        <ng-template #titleTab2>
+            <i class="uil uil-setting"></i>
+            Configuración
+        </ng-template>
+        <div class="tab-content">
+
+        </div>
+    </nz-tab>
+    <!-- <nz-tab nzTitle="Otros">
+        <div class="tab-content">
+
+        </div>
+    </nz-tab> -->
+</nz-tabset>

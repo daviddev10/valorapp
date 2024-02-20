@@ -1,0 +1,27 @@
+<nz-table #basicTable [nzData]="valuedList" [nzBordered]="true" nzSize="small" [nzShowPagination]="false">
+    <thead>
+        <tr>
+            <th>Valorado</th>
+            <th class="text-right">Cant.</th>
+            <th class="text-right">Precio</th>
+            <th class="text-right">Total</th>
+            <th class="text-right"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{data.Name}}</td>
+            <td class="text-right">{{data.Quantity}}</td>
+            <td class="text-right">{{data.UnitPrice}}Bs</td>
+            <td class="text-right">{{data.Total}}Bs</td>
+            <td class="text-center">
+                <nz-tag nzColor="warning">
+                    <i class="uil uil-pen"></i>
+                </nz-tag>
+                <nz-tag nzColor="error">
+                    <i class="uil uil-multiply"></i>
+                </nz-tag>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
