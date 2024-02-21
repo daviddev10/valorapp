@@ -14,11 +14,13 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { ValuedListComponent } from './components/valued-list/valued-list.component';
+import { ValuedQuantityComponent } from './components/valued-quantity/valued-quantity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ValuedListComponent
+    ValuedListComponent,
+    ValuedQuantityComponent
   ],
   imports: [
     BrowserModule,

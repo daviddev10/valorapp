@@ -1,24 +1,33 @@
-import { Component } from '@angular/core';
-import { IValueData } from './shared/interfaces/valued-data.interface';
+import { Component, OnInit } from '@angular/core';
+import { VALUED_TYPES } from './shared/data/valued.data';
+import { IValueDataList, IValuedInfo } from './shared/interfaces/valued-data.interface';
+import { EValuedType } from './shared/enums/valued-types.enum';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'valorapp';
+export class AppComponent implements OnInit {
 
-  nzOffsetBottom = 10;
+  valuedTypes: IValuedInfo[] = [];
+  valuedDataList: IValueDataList[] = [];
 
-  valuedList: IValueData[] = [{
-    Name: 'Nacimiento',
-    Quantity: 15,
-    UnitPrice: 33,
-    Total: 495
-  }];
+  constructor() { }
 
-  onBack() {
+  ngOnInit(): void {
+    this.loadValuedList();
+  }
 
+  private loadValuedList() {
+    this.valuedTypes = VALUED_TYPES;
+    this.valuedDataList = [{
+      Name: 'Nacimiento',
+      Type: EValuedType.Nacimiento,
+      Quantity: 15,
+      UnitPrice: 30,
+      Total: 450
+    }];
   }
 }

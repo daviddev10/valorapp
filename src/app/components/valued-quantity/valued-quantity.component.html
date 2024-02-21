@@ -1,0 +1,17 @@
+<div class="text-center" style="margin-top: 5px;">
+    <button nz-button nz-dropdown nzType="primary" nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="topCenter">
+        <nz-space [nzSize]="2">
+            <i *nzSpaceItem class="uuil uil-book-medical"></i>
+            <span *nzSpaceItem>Agregar nuevo</span>
+        </nz-space>
+    </button>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+            <li *ngFor="let valued of valuedTypeList" nz-menu-item (click)="openQuantityModal(valued)">
+                <i [class]="valued.Icon"></i>
+                <nz-divider nzType="vertical"></nz-divider>
+                <span>{{valued.ValuedName}}</span>
+            </li>
+        </ul>
+    </nz-dropdown-menu>
+</div>

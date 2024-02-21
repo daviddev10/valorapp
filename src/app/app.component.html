@@ -38,39 +38,10 @@
 
             </nz-page-header>
 
-
-            <app-valued-list></app-valued-list>
-            <!-- Nuevo valorado -->
-            <div class="text-center" style="margin-top: 5px;">
-                <button nz-button nz-dropdown nzType="primary" nzTrigger="click" [nzDropdownMenu]="menu"
-                    nzPlacement="topCenter">
-                    <nz-space [nzSize]="2">
-                        <i *nzSpaceItem class="uuil uil-book-medical"></i>
-                        <span *nzSpaceItem>Agregar nuevo</span>
-                    </nz-space>
-                </button>
-                <nz-dropdown-menu #menu="nzDropdownMenu">
-                    <ul nz-menu>
-                        <li nz-menu-item>
-                            <i class="uil uil-kid"></i>
-                            <nz-divider nzType="vertical"></nz-divider>
-                            <span>Nacimiento</span>
-                        </li>
-                        <li nz-menu-item>
-                            <i class="uil uil-heart-alt"></i>
-                            <nz-divider nzType="vertical"></nz-divider>
-                            <span>Matrimonio</span>
-                        </li>
-                        <li nz-menu-item>
-                            <i class="uil uil-ambulance"></i>
-                            <nz-divider nzType="vertical"></nz-divider>
-                            <span>Defunción</span>
-                        </li>
-
-
-                    </ul>
-                </nz-dropdown-menu>
-            </div>
+            <!-- LISTA DE VALORADOS -->
+            <app-valued-list [valuedList]="valuedDataList"></app-valued-list>
+            <!-- Agregar nuevo valorado -->
+            <app-valued-quantity [valuedTypeList]="valuedTypes"></app-valued-quantity>
         </div>
     </nz-tab>
     <nz-tab [nzTitle]="titleTab2">

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IValueData } from 'src/app/shared/interfaces/valued-data.interface';
+import { IValueDataList } from 'src/app/shared/interfaces/valued-data.interface';
 
 @Component({
   selector: 'app-valued-list',
@@ -8,7 +8,7 @@ import { IValueData } from 'src/app/shared/interfaces/valued-data.interface';
 })
 export class ValuedListComponent implements OnInit {
 
-  @Input() valuedList: IValueData[] = [];
+  @Input() valuedList: IValueDataList[] = [];
 
   constructor() { }
 
