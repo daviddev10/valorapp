@@ -19,6 +19,8 @@ import { ValuedFilterPipe } from './shared/pipes/valued-filter.pipe';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { TotalListPipe } from './shared/pipes/total-list.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,13 @@ import { TotalListPipe } from './shared/pipes/total-list.pipe';
     NzTagModule,
     NzSpaceModule,
     NzEmptyModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
