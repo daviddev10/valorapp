@@ -15,12 +15,18 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { ValuedListComponent } from './components/valued-list/valued-list.component';
 import { ValuedQuantityComponent } from './components/valued-quantity/valued-quantity.component';
+import { ValuedFilterPipe } from './shared/pipes/valued-filter.pipe';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { TotalListPipe } from './shared/pipes/total-list.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ValuedListComponent,
-    ValuedQuantityComponent
+    ValuedQuantityComponent,
+    ValuedFilterPipe,
+    TotalListPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,9 @@ import { ValuedQuantityComponent } from './components/valued-quantity/valued-qua
     NzDropDownModule,
     NzTableModule,
     NzTagModule,
-    NzSpaceModule
+    NzSpaceModule,
+    NzEmptyModule,
+    NzPopconfirmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

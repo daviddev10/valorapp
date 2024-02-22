@@ -1,27 +1,43 @@
-<nz-table #basicTable [nzData]="valuedList" [nzBordered]="true" nzSize="small" [nzShowPagination]="false">
+<nz-table #basicTable [nzData]="valuedList" [nzBordered]="true" nzSize="small" [nzShowPagination]="false"
+    [nzNoResult]="emptyValued" [nzFooter]="listFooter">
     <thead>
         <tr>
             <th>Valorado</th>
             <th class="text-right">Cant.</th>
             <th class="text-right">Precio</th>
             <th class="text-right">Total</th>
-            <th class="text-right"></th>
+            <th class="text-right" [width]="90"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let data of basicTable.data">
             <td>{{data.Name}}</td>
-            <td class="text-right">{{data.Quantity}}</td>
+            <td class="text-right" style="font-weight: 500;">{{data.Quantity}}</td>
             <td class="text-right">{{data.UnitPrice}}Bs</td>
             <td class="text-right">{{data.Total}}Bs</td>
             <td class="text-center">
                 <nz-tag nzColor="warning">
-                    <i class="uil uil-pen"></i>
+                    <a href="#" style="color: #faad14;" (click)="onEditValuedRow.emit(data)">
+                        <i class="uil uil-pen"></i>
+                    </a>
                 </nz-tag>
                 <nz-tag nzColor="error">
-                    <i class="uil uil-multiply"></i>
+                    <a style="color: #ff4d4f;" nz-popconfirm
+                        nzPopconfirmTitle="¿Está seguro que desea quitar de la lista?" nzCancelText="Cancelar"
+                        nzOkText="Si" nzPopconfirmPlacement="bottom"
+                        (nzOnConfirm)="onRemoveValued.emit(data.Type)">
+                        <i class="uil uil-multiply"></i>
+                    </a>
                 </nz-tag>
             </td>
         </tr>
     </tbody>
 </nz-table>
+<!-- Datos vacios -->
+<ng-template #emptyValued>
+    <nz-empty nzNotFoundImage="simple" nzNotFoundContent="Sin valorados"></nz-empty>
+</ng-template>
+<!-- Footer -->
+<ng-template #listFooter>
+    <p class="total-row">MONTO TOTAL: {{valuedList|totalList}}Bs.</p>
+</ng-template>

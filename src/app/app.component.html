@@ -39,9 +39,13 @@
             </nz-page-header>
 
             <!-- LISTA DE VALORADOS -->
-            <app-valued-list [valuedList]="valuedDataList"></app-valued-list>
+            <app-valued-list [valuedList]="valuedDataList" (onEditValuedRow)="onEditValued($event)"
+                (onRemoveValued)="onRemoveValued($event)">
+            </app-valued-list>
             <!-- Agregar nuevo valorado -->
-            <app-valued-quantity [valuedTypeList]="valuedTypes"></app-valued-quantity>
+            <app-valued-quantity #quantityComp [valuedTypeList]="valuedTypes | valuedFilter:valuedDataList"
+                (onAddValuedData)="onAddValuedToList($event)">
+            </app-valued-quantity>
         </div>
     </nz-tab>
     <nz-tab [nzTitle]="titleTab2">

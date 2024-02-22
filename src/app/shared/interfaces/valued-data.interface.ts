@@ -9,7 +9,6 @@ export interface IValueDataList {
 }
 
 export interface IValuedInfo {
-    Title: string;
     ValuedName: string;
     ValuedType: EValuedType;
     ValuedPrice: number;

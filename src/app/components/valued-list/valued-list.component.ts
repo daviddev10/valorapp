@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { EValuedType } from 'src/app/shared/enums/valued-types.enum';
 import { IValueDataList } from 'src/app/shared/interfaces/valued-data.interface';
 
 @Component({
@@ -9,6 +10,8 @@ import { IValueDataList } from 'src/app/shared/interfaces/valued-data.interface'
 export class ValuedListComponent implements OnInit {
 
   @Input() valuedList: IValueDataList[] = [];
+  @Output() onEditValuedRow = new EventEmitter<IValueDataList>();
+  @Output() onRemoveValued = new EventEmitter<EValuedType>();
 
   constructor() { }
 

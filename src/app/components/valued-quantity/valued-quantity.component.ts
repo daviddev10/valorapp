@@ -22,14 +22,14 @@ export class ValuedQuantityComponent implements OnInit {
 
 
 
-  openQuantityModal(valued: IValuedInfo) {
-    console.log('valued :>> ', valued);
+  openQuantityModal(valued: IValuedInfo, quantity?: number) {
     Swal.fire({
-      title: `${valued.Title} <i class="${valued.Icon}"></i>`,
+      title: `${valued.ValuedName} <i class="${valued.Icon}"></i>`,
       // text: 'Ingrese la cantidad a comprar:',
       input: 'number',
       inputLabel: 'Ingrese la cantidad a comprar:',
       inputPlaceholder: '0',
+      inputValue: quantity,
       inputValidator: (value) => {
         return +value ? null : 'Ingrese una cantidad valida!';
       },
@@ -40,8 +40,22 @@ export class ValuedQuantityComponent implements OnInit {
       confirmButtonColor: '#40A9FF',
       confirmButtonText: `<i class="uil uil-check-circle"></i> Agregar`
     }).then((result) => {
-      console.log('result :>> ', result);
+      if (result.isConfirmed) {
+        const valuedToList: IValueDataList = this.getValuedListModel(valued, +result.value);
+        this.onAddValuedData.emit(valuedToList);
+      }
     });
+  }
+
+  private getValuedListModel(valued: IValuedInfo, quantity: number): IValueDataList {
+    const newValued: IValueDataList = {
+      Name: valued.ValuedName,
+      Type: valued.ValuedType,
+      Quantity: quantity,
+      UnitPrice: valued.ValuedPrice,
+      Total: valued.ValuedPrice * quantity
+    }
+    return newValued;
   }
 
 
