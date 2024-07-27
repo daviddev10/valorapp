@@ -1,0 +1,8 @@
+::ng-deep #tabMenuContiner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    .ant-tabs-nav-wrap {
+        background-color: #fff;
+    }
+}

@@ -1,65 +1,7 @@
-<nz-tabset nzCentered nzSize="large" nzTabPosition="bottom">
-    <nz-tab [nzTitle]="titleTemplate">
-        <ng-template #titleTemplate>
-            <i class="uil uil-shopping-basket"></i>
-            Compras
-        </ng-template>
-        <div class="tab-content">
-            <!-- Header -->
-            <nz-page-header>
-
-                <!--title-->
-                <nz-page-header-title>COMPRA DE VALORADOS</nz-page-header-title>
-
-                <!--subtitle-->
-                <!-- <nz-page-header-subtitle>(Cifras expresadas en Bs.)</nz-page-header-subtitle> -->
-
-                <!--tags-->
-                <!-- <nz-page-header-tags>
-                    <nz-tag [nzColor]="'blue'">Running</nz-tag>
-                </nz-page-header-tags> -->
-
-                <!--extra-->
-                <nz-page-header-extra>
-                    <nz-space>
-                        <!-- <button *nzSpaceItem nz-button>Operation</button> -->
-                        <button *nzSpaceItem nz-button nzDanger nzType="primary">
-                            <nz-space [nzSize]="2">
-                                <span *nzSpaceItem>Salir</span>
-                                <i *nzSpaceItem class="uil uil-sign-out-alt"></i>
-                            </nz-space>
-                        </button>
-
-
-                    </nz-space>
-
-                </nz-page-header-extra>
-
-
-            </nz-page-header>
-
-            <!-- LISTA DE VALORADOS -->
-            <app-valued-list [valuedList]="valuedDataList" (onEditValuedRow)="onEditValued($event)"
-                (onRemoveValued)="onRemoveValued($event)">
-            </app-valued-list>
-            <!-- Agregar nuevo valorado -->
-            <app-valued-quantity #quantityComp [valuedTypeList]="valuedTypes | valuedFilter:valuedDataList"
-                (onAddValuedData)="onAddValuedToList($event)">
-            </app-valued-quantity>
-        </div>
-    </nz-tab>
-    <nz-tab [nzTitle]="titleTab2">
-        <ng-template #titleTab2>
-            <i class="uil uil-setting"></i>
-            Configuración
-        </ng-template>
-        <div class="tab-content">
-
-        </div>
-    </nz-tab>
-    <!-- <nz-tab nzTitle="Otros">
-        <div class="tab-content">
-
-        </div>
-    </nz-tab> -->
-</nz-tabset>
+<app-app-header></app-app-header>
+<div class="container">
+    <nz-card>
+        <router-outlet></router-outlet>
+    </nz-card>
+</div>
+<app-navigation-menu></app-navigation-menu>

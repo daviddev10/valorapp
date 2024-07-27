@@ -1,7 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { PurchaseListComponent } from './pages/purchase/purchase-list/purchase-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    data: {
+      title: 'ValorApp v1.2'
+    }
+  },
+  {
+    path: 'compras',
+    component: PurchaseListComponent,
+    data: {
+      title: 'COMPRAS REALIZADAS'
+    }
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

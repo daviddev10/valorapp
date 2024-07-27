@@ -1,0 +1,22 @@
+<div class="row mb-2">
+    <div class="col-6">
+        <div class="form-group">
+            <label>Fecha de compra</label>
+            <app-input-date></app-input-date>
+        </div>
+    </div>
+    <!-- Agregar nuevo valorado -->
+    <div class="col-6 text-end">
+        <app-valued-quantity #quantityComp [valuedTypeList]="valuedTypes | valuedFilter:valuedDataList"
+            (onAddValuedData)="onAddValuedToList($event)">
+        </app-valued-quantity>
+    </div>
+</div>
+
+
+
+
+<!-- LISTA DE VALORADOS -->
+<app-valued-list [valuedList]="valuedDataList" (onEditValuedRow)="onEditValued($event)"
+    (onRemoveValued)="onRemoveValued($event)">
+</app-valued-list>

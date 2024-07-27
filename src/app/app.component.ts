@@ -11,43 +11,20 @@ import { ValuedQuantityComponent } from './components/valued-quantity/valued-qua
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
-  @ViewChild('quantityComp') quantityComp!: ValuedQuantityComponent;
-
-  valuedTypes: IValuedInfo[] = [];
-  valuedDataList: IValueDataList[] = [];
+  public tabs = [
+    {
+      name: 'Tab 1',
+      icon: 'apple'
+    },
+    {
+      name: 'Tab 2',
+      icon: 'android'
+    }
+  ]
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.loadValuedList();
-  }
 
-  private loadValuedList() {
-    this.valuedTypes = VALUED_TYPES;
-  }
-
-  onAddValuedToList(valued: IValueDataList): void {
-    const valuedList = [...this.valuedDataList];
-    const valuedIndex = valuedList.findIndex(data => data.Type === valued.Type);
-    if (valuedIndex >= 0) { // Editar valorado
-      valuedList[valuedIndex] = valued;
-      this.valuedDataList = valuedList;
-    } else { // Nuevo valorado
-      this.valuedDataList = valuedList.concat([valued]);
-    }
-  }
-
-  onEditValued(valued: IValueDataList) {
-    const valuedType = this.valuedTypes.find(type => type.ValuedType === valued.Type);
-    if (valuedType) {
-      this.quantityComp.openQuantityModal(valuedType, valued.Quantity);
-    }
-  }
-
-  onRemoveValued(valuedType: EValuedType): void {
-    const newValueList = this.valuedDataList.filter(valued => valued.Type !== valuedType);
-    this.valuedDataList = newValueList;
-  }
 }

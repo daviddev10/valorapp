@@ -21,20 +21,39 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { TotalListPipe } from './shared/pipes/total-list.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AppHeaderComponent } from './layout/app-header/app-header.component';
+import { PurchaseListComponent } from './pages/purchase/purchase-list/purchase-list.component';
+import { NavigationMenuComponent } from './layout/navigation-menu/navigation-menu.component';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { HomeComponent } from './pages/home/home.component';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { InputDateComponent } from './shared/components/inputs/input-date.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { es_ES, NZ_I18N } from 'ng-zorro-antd/i18n';
+import es from '@angular/common/locales/es'
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
     ValuedListComponent,
     ValuedQuantityComponent,
     ValuedFilterPipe,
-    TotalListPipe
+    TotalListPipe,
+    AppHeaderComponent,
+    PurchaseListComponent,
+    NavigationMenuComponent,
+    HomeComponent,
+    InputDateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    ReactiveFormsModule,
     NzButtonModule,
     NzTabsModule,
     NzIconModule,
@@ -46,6 +65,10 @@ import { environment } from '../environments/environment';
     NzSpaceModule,
     NzEmptyModule,
     NzPopconfirmModule,
+    NzCardModule,
+    NzDatePickerModule,
+    NzAvatarModule,
+    NzProgressModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -53,7 +76,9 @@ import { environment } from '../environments/environment';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: es_ES}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

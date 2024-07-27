@@ -1,0 +1,55 @@
+<nz-page-header id="headerContainer" class="site-page-header">
+  <!--breadcrumb-->
+  <!-- <nz-breadcrumb nz-page-header-breadcrumb>
+      <nz-breadcrumb-item>First-level Menu</nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a>Second-level Menu</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>Third-level Menu</nz-breadcrumb-item>
+    </nz-breadcrumb> -->
+
+  <!--avatar-->
+
+  <!--title-->
+  <nz-page-header-title>
+    <span class="text-title">{{pageTitle}}</span>
+  </nz-page-header-title>
+
+  <!--subtitle-->
+  <!-- <nz-page-header-subtitle>This is a subtitle</nz-page-header-subtitle> -->
+
+  <!--tags-->
+  <!-- <nz-page-header-tags>
+    <nz-tag [nzColor]="'blue'">Running</nz-tag>
+  </nz-page-header-tags> -->
+
+  <!--extra-->
+  <nz-page-header-extra>
+    <nz-space>
+      <!-- <button *nzSpaceItem nz-button>Operation</button>
+      <button *nzSpaceItem nz-button>Operation</button>
+      <button *nzSpaceItem nz-button nzType="primary">Primary</button>
+      <button
+          *nzSpaceItem
+          nz-button
+          nzNoAnimation
+          nz-dropdown
+          [nzDropdownMenu]="menu"
+          nzPlacement="bottomRight"
+          style="border: none; padding: 0"
+        >
+          <span nz-icon nzType="more" nzTheme="outline" style="font-size: 20px; vertical-align: top;"></span>
+        </button> -->
+
+      <nz-avatar nz-page-header-avatar nzSrc="assets/images/avatars/user-faby.jpg"></nz-avatar>
+    </nz-space>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>1st menu item length</li>
+        <li nz-menu-item>2nd menu item length</li>
+        <li nz-menu-item>3rd menu item length</li>
+      </ul>
+    </nz-dropdown-menu>
+  </nz-page-header-extra>
+
+</nz-page-header>
