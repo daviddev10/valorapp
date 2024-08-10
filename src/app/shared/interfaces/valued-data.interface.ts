@@ -1,4 +1,4 @@
-import { EValuedType } from "../enums/valued-types.enum";
+import { EValuedType } from "src/app/core/enums/valued.enum";
 
 export interface IValueDataList {
     Name: string;

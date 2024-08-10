@@ -1,9 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { VALUED_TYPES } from './shared/data/valued.data';
-import { IValueDataList, IValuedInfo } from './shared/interfaces/valued-data.interface';
-import { EValuedType } from './shared/enums/valued-types.enum';
-// Components
-import { ValuedQuantityComponent } from './components/valued-quantity/valued-quantity.component';
+import { Component } from '@angular/core';
 
 
 @Component({

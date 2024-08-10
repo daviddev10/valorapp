@@ -1,4 +1,5 @@
-<nz-tabset id="tabMenuContiner" nzCentered nzSize="large" nzTabPosition="bottom">
+<nz-tabset id="tabMenuContiner" nzCentered nzSize="large" nzTabPosition="bottom"
+    (nzSelectedIndexChange)="onSelectedPageIndex($event)">
     <nz-tab [nzTitle]="pageHome">
         <ng-template #pageHome>
             <i class="uil uil-chart"></i> Inicio

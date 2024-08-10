@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { EValuedType } from 'src/app/shared/enums/valued-types.enum';
+import { EValuedType } from 'src/app/core/enums/valued.enum';
 import { IValueDataList } from 'src/app/shared/interfaces/valued-data.interface';
 
 @Component({

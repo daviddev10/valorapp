@@ -34,6 +34,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { es_ES, NZ_I18N } from 'ng-zorro-antd/i18n';
 import es from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
+import { PurchaseControllerComponent } from './controllers/purchase-controller.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzInputModule } from 'ng-zorro-antd/input';
+// Firebase
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { PurchaseRegisterComponent } from './pages/purchase/purchase-register/purchase-register.component';
 
 registerLocaleData(es);
 @NgModule({
@@ -47,7 +54,9 @@ registerLocaleData(es);
     PurchaseListComponent,
     NavigationMenuComponent,
     HomeComponent,
-    InputDateComponent
+    InputDateComponent,
+    PurchaseControllerComponent,
+    PurchaseRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +70,9 @@ registerLocaleData(es);
     NzPageHeaderModule,
     NzDropDownModule,
     NzTableModule,
+    NzModalModule,
     NzTagModule,
+    NzInputModule,
     NzSpaceModule,
     NzEmptyModule,
     NzPopconfirmModule,
@@ -74,10 +85,12 @@ registerLocaleData(es);
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [
-    { provide: NZ_I18N, useValue: es_ES}
+    { provide: NZ_I18N, useValue: es_ES }
   ],
   bootstrap: [AppComponent]
 })

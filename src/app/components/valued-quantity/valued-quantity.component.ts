@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { EValuedType } from 'src/app/shared/enums/valued-types.enum';
 import { IValueDataList, IValuedInfo } from 'src/app/shared/interfaces/valued-data.interface';
 // Libs
 import Swal from 'sweetalert2'
@@ -22,7 +21,9 @@ export class ValuedQuantityComponent implements OnInit {
 
 
 
-  openQuantityModal(valued: IValuedInfo, quantity?: number) {
+  openQuantityModal(valued: IValuedInfo, quantity: number = 0): void {
+    console.log('valued :>> ', valued);
+    console.log('quantity :>> ', quantity);
     Swal.fire({
       title: `${valued.ValuedName} <i class="${valued.Icon}"></i>`,
       // text: 'Ingrese la cantidad a comprar:',

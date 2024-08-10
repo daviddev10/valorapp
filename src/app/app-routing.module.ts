@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PurchaseListComponent } from './pages/purchase/purchase-list/purchase-list.component';
+import { PurchaseControllerComponent } from './controllers/purchase-controller.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'compras',
-    component: PurchaseListComponent,
+    component: PurchaseControllerComponent,
     data: {
       title: 'COMPRAS REALIZADAS'
     }

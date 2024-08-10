@@ -1,4 +1,4 @@
-import { EValuedType } from "../enums/valued-types.enum";
+import { EValuedType } from "src/app/core/enums/valued.enum";
 import { IValuedInfo } from "../interfaces/valued-data.interface";
 
 export const VALUED_TYPES: IValuedInfo[] = [
