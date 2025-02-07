@@ -4,5 +4,6 @@ export enum EValuedType {
     Defuncion = 3,
     Edicto = 4,
     LibretaFamilia = 5,
-    PapeletaValorada = 6
+    PapeletaValorada = 6,
+    Gratuidad = 6,
 }

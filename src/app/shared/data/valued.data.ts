@@ -38,4 +38,10 @@ export const VALUED_TYPES: IValuedInfo[] = [
         ValuedPrice: 23,
         Icon: 'uil uil-file-landscape-alt'
     },
+    {
+        ValuedName: 'Certificado de gratuidad',
+        ValuedType: EValuedType.Gratuidad,
+        ValuedPrice: 0,
+        Icon: 'uil uil-file-check'
+    },
 ];
